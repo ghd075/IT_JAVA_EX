@@ -9,8 +9,13 @@ public class SubjectDAO extends DaoConn {
 	
 	@Override
 	public ResultSet select(String sql) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@Override
